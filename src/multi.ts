@@ -73,13 +73,13 @@ async function main() {
   const provider = new ethers.providers.JsonRpcProvider(
     "https://rpc.coinex.net"
   );
-  console.log(poolAbi[0]);
+
   const balances = await multicall(poolAbi, calls, provider);
   const _data = balances.map((tk: any) => ({
     balance: tk[0] / 10,
   }));
 
-  console.log(_data, "_data");
+  console.log(_data);
   return _data;
 }
 
