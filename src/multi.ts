@@ -52,6 +52,7 @@ async function main() {
   const poolAddress1 = "0x359F4ed0764F878a5BF71A615686fc277cD610C6";
   const poolAddress2 = "0x264bB08fb82ee8f3C996370369E2b63b143d264F";
   const poolAddress3 = "0xf60B965989d4FfE0cE929a66c2048013118a9eA7";
+  const poolAddress4 = "0xA2E7882f88a05e4eA7B19a43cDdb2CfdB414d180";
 
 
   const accounts = [account1, account2];
@@ -68,6 +69,16 @@ async function main() {
     { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
     { name: "totalReward", address: poolAddress1, params: [account1] },
     { name: "amountClaimable", address: poolAddress1, params: [account1] },
+
+    { name: "totalStaked", address: poolAddress2, params: [] },
+    { name: "totalStakedByAccount", address: poolAddress2, params: [account1] },
+    { name: "totalReward", address: poolAddress2, params: [account1] },
+    { name: "amountClaimable", address: poolAddress2, params: [account1] },
+
+    { name: "totalStaked", address: poolAddress4, params: [] },
+    { name: "totalStakedByAccount", address: poolAddress4, params: [account1] },
+    { name: "totalReward", address: poolAddress4, params: [account1] },
+    { name: "amountClaimable", address: poolAddress4, params: [account1] },
   ];
 
   const provider = new ethers.providers.JsonRpcProvider(
