@@ -23,11 +23,11 @@ export const multicall = async <T = any>(
       provider
     );
 
-    if (abi.encodeFunctionData) {
-      itf = abi;
-    } else {
-      itf = new ethers.utils.Interface(abi);
-    }
+    // if (abi.encodeFunctionData) {
+    //   itf = abi;
+    // } else {
+    itf = new ethers.utils.Interface(abi);
+    // }
 
     const calldata = calls.map((call) => [
       call.address.toLowerCase(),
@@ -73,6 +73,7 @@ async function main() {
   const provider = new ethers.providers.JsonRpcProvider(
     "https://rpc.coinex.net"
   );
+  console.log(poolAbi[0]);
   const balances = await multicall(poolAbi, calls, provider);
   const _data = balances.map((tk: any) => ({
     balance: tk[0] / 10,
