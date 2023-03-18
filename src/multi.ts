@@ -64,9 +64,9 @@ async function main() {
     //   params: [accounts[0]],
     // },
     // { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
-    // { name: "totalStaked", address: poolAddress1, params: [] },
+    { name: "totalStaked", address: poolAddress1, params: [] },
     { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
-    // { name: "totalReward", address: poolAddress1, params: [account1] },
+    { name: "totalReward", address: poolAddress1, params: [account1] },
     // { name: "isClaimable", address: poolAddress1, params: [account1] },
   ];
 
