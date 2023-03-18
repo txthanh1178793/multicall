@@ -58,13 +58,13 @@ async function main() {
 
   const tokenAddress = "0x614EA1546f54192c713d2fcC516E4a74cF282fA0"; // token $WOM
   const calls: Call[] = [
-    // {
+    // {      
     //   address: tokenAddress,
     //   name: "balanceOf",
     //   params: [accounts[0]],
     // },
     // { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
-    { name: "totalStaked", address: poolAddress1, params: [] },
+    // { name: "totalStaked", address: poolAddress1, params: [] },
     { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
     { name: "totalReward", address: poolAddress1, params: [account1] },
     { name: "isClaimable", address: poolAddress1, params: [account1] },
