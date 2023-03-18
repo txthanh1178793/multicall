@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 
 import multicallAbi from "./abi/multicall.json";
+import poolAbi from "./abi/pool.json"
 import { IERC20__factory } from "./interfaces/erc20";
 
 export interface Call {
@@ -62,17 +63,17 @@ async function main() {
     //   name: "balanceOf",
     //   params: [accounts[0]],
     // },
-    { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
-    // { name: "totalStaked", address: poolAddress1, params: [] },
-    // { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
-    // { name: "totalReward", address: poolAddress1, params: [account1] },
-    // { name: "isClaimable", address: poolAddress1, params: [account1] },
+    // { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
+    { name: "totalStaked", address: poolAddress1, params: [] },
+    { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
+    { name: "totalReward", address: poolAddress1, params: [account1] },
+    { name: "isClaimable", address: poolAddress1, params: [account1] },
   ];
 
   const provider = new ethers.providers.JsonRpcProvider(
     "https://rpc.coinex.net"
   );
-  const balances = await multicall(IERC20__factory.abi, calls, provider);
+  const balances = await multicall(poolAbi, calls, provider);
   const _data = balances.map((tk: any) => ({
     balance: tk[0] / 10,
   }));
