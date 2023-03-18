@@ -17,7 +17,7 @@ export const multicall = async <T = any>(
   try {
     let itf: any;
     const multi = new ethers.Contract(
-      "0x956BBC80253755A48FBcCC6783BBB418C793A257", // contract multicall
+      "0x63842f90D8f1BcCAe36eb67C91270e1Df09613a8", // contract multicall
       multicallAbi,
       provider
     );
@@ -45,23 +45,32 @@ export const multicall = async <T = any>(
 };
 
 async function main() {
-  const account1 = "0x3DA62816dD31c56D9CdF22C6771ddb892cB5b0Cc"; // holder 1
+  const account1 = "0xe924D3860C3EADb4C11Eb52A3D8D5798E13C080e"; // holder 1
   const account2 = "0xE2C07d20AF0Fb50CAE6cDD615CA44AbaAA31F9c8"; // holder 2
+
+  const poolAddress1 = "0x359F4ed0764F878a5BF71A615686fc277cD610C6";
+  const poolAddress2 = "0x264bB08fb82ee8f3C996370369E2b63b143d264F";
+  const poolAddress3 = "0xf60B965989d4FfE0cE929a66c2048013118a9eA7";
+
 
   const accounts = [account1, account2];
 
-  const tokenAddress = "0xad6742a35fb341a9cc6ad674738dd8da98b94fb1"; // token $WOM
+  const tokenAddress = "0x614EA1546f54192c713d2fcC516E4a74cF282fA0"; // token $WOM
   const calls: Call[] = [
-    {
-      address: tokenAddress,
-      name: "balanceOf",
-      params: [accounts[0]],
-    },
-    { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
+    // {
+    //   address: tokenAddress,
+    //   name: "balanceOf",
+    //   params: [accounts[0]],
+    // },
+    // { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
+    { name: "totalStaked", address: poolAddress1, params: [] },
+    { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
+    { name: "totalReward", address: poolAddress1, params: [account1] },
+    { name: "isClaimable", address: poolAddress1, params: [account1] },
   ];
 
   const provider = new ethers.providers.JsonRpcProvider(
-    "https://bsc-dataseed.binance.org"
+    "https://rpc.coinex.net"
   );
   const balances = await multicall(IERC20__factory.abi, calls, provider);
   const _data = balances.map((tk: any) => ({
