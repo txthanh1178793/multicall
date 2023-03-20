@@ -87,7 +87,7 @@ async function main() {
 
   const balances = await multicall(poolAbi, calls, provider);
   const _data = balances.map((tk: any) => ({
-    balance: tk[0],
+    balance: tk[0] / 1,
   }));
 
   console.log(_data);
