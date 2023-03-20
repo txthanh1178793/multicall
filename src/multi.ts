@@ -65,20 +65,20 @@ async function main() {
     //   params: [accounts[0]],
     // },
     // { name: "balanceOf", address: tokenAddress, params: [accounts[1]] },
-    { name: "totalStaked", address: poolAddress1, params: [] },
-    { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
+    // { name: "totalStaked", address: poolAddress1, params: [] },
+    // { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
     { name: "totalReward", address: poolAddress1, params: [account1] },
-    { name: "amountClaimable", address: poolAddress1, params: [account1] },
+    // { name: "amountClaimable", address: poolAddress1, params: [account1] },
 
-    { name: "totalStaked", address: poolAddress2, params: [] },
-    { name: "totalStakedByAccount", address: poolAddress2, params: [account1] },
-    { name: "totalReward", address: poolAddress2, params: [account1] },
-    { name: "amountClaimable", address: poolAddress2, params: [account1] },
+    // { name: "totalStaked", address: poolAddress2, params: [] },
+    // { name: "totalStakedByAccount", address: poolAddress2, params: [account1] },
+    // { name: "totalReward", address: poolAddress2, params: [account1] },
+    // { name: "amountClaimable", address: poolAddress2, params: [account1] },
 
-    { name: "totalStaked", address: poolAddress4, params: [] },
-    { name: "totalStakedByAccount", address: poolAddress4, params: [account1] },
-    { name: "totalReward", address: poolAddress4, params: [account1] },
-    { name: "amountClaimable", address: poolAddress4, params: [account1] },
+    // { name: "totalStaked", address: poolAddress4, params: [] },
+    // { name: "totalStakedByAccount", address: poolAddress4, params: [account1] },
+    // { name: "totalReward", address: poolAddress4, params: [account1] },
+    // { name: "amountClaimable", address: poolAddress4, params: [account1] },
   ];
 
   const provider = new ethers.providers.JsonRpcProvider(
@@ -87,7 +87,7 @@ async function main() {
 
   const balances = await multicall(poolAbi, calls, provider);
   const _data = balances.map((tk: any) => ({
-    balance: tk[0] / 10,
+    balance: tk[0],
   }));
 
   console.log(_data);
