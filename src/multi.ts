@@ -68,7 +68,7 @@ async function main() {
     // { name: "totalStaked", address: poolAddress1, params: [] },
     // { name: "totalStakedByAccount", address: poolAddress1, params: [account1] },
     { name: "totalReward", address: poolAddress1, params: [account1] },
-    { name: "amountClaimable", address: poolAddress1, params: [account1] },
+    // { name: "amountClaimable", address: poolAddress1, params: [account1] },
 
     // { name: "totalStaked", address: poolAddress2, params: [] },
     // { name: "totalStakedByAccount", address: poolAddress2, params: [account1] },
@@ -78,7 +78,7 @@ async function main() {
     // { name: "totalStaked", address: poolAddress4, params: [] },
     // { name: "totalStakedByAccount", address: poolAddress4, params: [account1] },
     // { name: "totalReward", address: poolAddress4, params: [account1] },
-    // { name: "amountClaimable", address: poolAddress4, params: [account1] },
+    { name: "amountClaimable", address: poolAddress4, params: [account1] },
   ];
 
   const provider = new ethers.providers.JsonRpcProvider(
